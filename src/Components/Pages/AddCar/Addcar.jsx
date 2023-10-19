@@ -11,7 +11,20 @@ const Addcar = () => {
     const rating = form.rating.value;
     const carCategory = form.carCategory.value;
     const brand = form.brand.value;
-    console.log(name, price, description, photo, rating, carCategory, brand);
+    const addedCars = {name, price, description, photo, rating, carCategory, brand};
+    console.log(addedCars);
+
+     fetch("http://localhost:5000/cars",{
+      method:"POST",
+      headers:{
+        "Content-Type":"application/json"
+      },
+      body:JSON.stringify(addedCars)
+    })
+    .then(res=>res.json())
+    .then(data=>{
+      console.log(data.message);
+    })
   };
   return (
     <div>
@@ -66,12 +79,12 @@ const Addcar = () => {
                           name="brand"
                           className="select select-bordered w-full bg-opacity-30 hover:bg-opacity-80 ">
                           
-                          <option >BMW</option>
+                          <option >BMW </option>
                           <option >Toyota</option>
                           <option >Tesla</option>
                           <option >Ferrari</option>
                           <option >Nissan</option>
-                          <option>Honda</option>
+                          <option >Honda</option>
                         </select>
                       </div>
                     </label>
@@ -128,12 +141,7 @@ const Addcar = () => {
                     <span className="bg-black bg-opacity-60 text-white font-semibold">
                       Short Description
                     </span>
-                    {/* <input 
-                        name="description"
-                        type="text"
-                        placeholder="Enter Description"
-                        className="input textarea textarea-bordered textarea-lg w-full h-10" 
-                      /> */}
+                   
                     <textarea
                       placeholder="Enter Description"
                       name="description"

@@ -7,6 +7,8 @@ import Register from "./../Register/Register";
 import Addcar from "../Pages/AddCar/Addcar";
 import UpdateDetails from "../Pages/UpdateDetails/UpdateDetails";
 import PrivetRoute from "../PrivetRoute/PrivetRoute";
+import Details from '../Pages/Details/Details'
+import MyCart from "../Pages/MyCart/MyCart";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -16,6 +18,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
+        loader: ()=> fetch("http://localhost:5000/cars"),
       },
       {
         path: "/login",
@@ -32,6 +35,16 @@ const router = createBrowserRouter([
       {
         path: "/update",
         element: <UpdateDetails></UpdateDetails>,
+      },
+      {
+        path: "/details/:id",
+        element: <PrivetRoute><Details></Details></PrivetRoute>,
+        loader: ()=> fetch("http://localhost:5000/cars"),
+      },
+      {
+        path: "/my-cart/",
+        element: <PrivetRoute><MyCart></MyCart></PrivetRoute>,
+        loader: ()=> fetch("http://localhost:5000/my-cart"),
       },
     ],
   },

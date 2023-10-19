@@ -11,7 +11,6 @@ const PrivetRoute = ({children}) => {
 
     const location = useLocation()
 
-    console.log(location.pathname);
 
     if(loading){
         return <div className="border border-blue-300 shadow rounded-md p-4 max-w-sm w-full mx-auto">

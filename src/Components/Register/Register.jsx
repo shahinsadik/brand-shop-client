@@ -18,6 +18,17 @@ const Register = () => {
     const password =form.password.value   
     const register ={name,photo,email, password}
     console.log(register);
+    fetch("http://localhost:5000/users",{
+      method:"POST",
+      headers:{
+        "Content-Type":"application/json"
+      },
+      body:JSON.stringify(register)
+    })
+    .then(res=>res.json())
+    .then(data=>{
+      console.log(data.message);
+    })
 
     if (!/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d).{8,}$/.test(password)) {
       setError(

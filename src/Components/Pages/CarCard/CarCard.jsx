@@ -1,0 +1,36 @@
+import React from "react";
+import {Link} from 'react-router-dom'
+import { AiTwotoneStar, AiFillEye } from 'react-icons/ai';
+
+const CarCard = ({ car }) => {
+  const { photo, brand, rating, name, carCategory, price, _id } = car;
+  return (
+    <div>
+      <div className="mx-5">
+        <div className="bg-base-100 shadow-xl rounded-lg p-2">
+          <img className="rounded-xl h-60 w-full " src={photo} alt="" />
+          <div className="flex justify-between my-2">
+            <h3 className=" font-semibold ">{brand}</h3>
+            <div className="text-orange-600 flex items-center gap-1">
+            <AiTwotoneStar/>
+            <p className=" font-semibold"> {rating}</p>
+            </div>
+          </div>
+          <div className="flex justify-between mb-2">
+            <h2 className="text-xl font-bold ">{name}</h2>
+            <p className=" font-semibold">{carCategory}</p>
+          </div>{" "}
+          <hr />
+          <div className="flex justify-between mb-2 mt-3">
+            <p className="text-xl font-bold text-[#ef1d26]">$ {price}</p>
+            <Link to={`/details/${_id}`}><button className="text-lg font-semibold flex items-center gap-1 hover:bg-black bg-[#ef1d26] px-3 p-1 rounded-lg text-white"><AiFillEye/>
+              Details
+            </button></Link>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default CarCard;

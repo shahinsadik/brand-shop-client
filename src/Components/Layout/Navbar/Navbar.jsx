@@ -24,7 +24,7 @@ const Navbar = () => {
             <NavLink to="/addcar">Add Car</NavLink>
           </li>
           <li className="font-bold  text-lg">
-            <NavLink to="/register">Sign Up</NavLink>
+            <NavLink to="/my-cart">My cart</NavLink>
           </li>
     </>
   );
@@ -66,6 +66,9 @@ const Navbar = () => {
         <div className="navbar-end ">
           {user ? (
             <>
+            <div>
+              
+            </div>
               <div className="dropdown dropdown-end ">
                 <label
                   tabIndex={0}
@@ -99,6 +102,7 @@ const Navbar = () => {
                   
                 </ul>
               </div>
+              
             </>
           ) : (
             <div className="flex gap-2">

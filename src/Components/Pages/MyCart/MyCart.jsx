@@ -1,5 +1,6 @@
 import { useLoaderData } from "react-router-dom";
 import { useEffect, useState } from "react";
+import Swal from 'sweetalert2'
 
 const MyCart = () => {
   const LoadedMyCart = useLoaderData();
@@ -11,8 +12,24 @@ const MyCart = () => {
       method: "DELETE",
     })
       .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
+      .then(() => {
+        Swal.fire({
+          title: 'Are you sure?',
+          text: "You won't be able to revert this!",
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            Swal.fire(
+              'Deleted!',
+              'Your file has been deleted.',
+              'success'
+            )
+          }
+        })
         const remaining = myCart.filter((item) => item._id !== _id);
         setMyCart(remaining)
       })

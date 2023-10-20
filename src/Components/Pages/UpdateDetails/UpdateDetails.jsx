@@ -1,6 +1,8 @@
 import React from 'react';
-
+import {useLoaderData } from 'react-router-dom'
 const UpdateDetails = () => {
+  const singleData = useLoaderData()
+  console.log(singleData);
     const handleUpdateDetails =(e)=>{
         e.preventDefault();
         const form = e.target;
@@ -11,7 +13,18 @@ const UpdateDetails = () => {
         const rating = form.rating.value;
         const carCategory = form.carCategory.value;
         const brand = form.brand.value;
-        console.log(name, price, description, photo, rating, carCategory, brand);
+        const updateData = {name, price, description, photo, rating, carCategory, brand};
+        
+        fetch(`http://localhost:5000/cars/${singleData._id}`,{
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(updateData)
+        })
+        .then(response => response.json())
+        .then(data => {
+          console.log(data)})
     }
     return (
         <div>
@@ -21,7 +34,7 @@ const UpdateDetails = () => {
             backgroundImage:
               "url(https://www.topgear.com/sites/default/files/2023/03/TG%20LAMBO230309_0013.jpg?w=1784&h=1004)",
           }}>
-          <div className="hero-overlay bg-opacity-80">
+          <div  className="hero-overlay bg-opacity-80">
             <div className="  rounded-lg">
               <form onSubmit={handleUpdateDetails} className="w-2/3 mx-auto space-y-2">
                 <h2 className="text-center font-bold text-3xl my-10 text-white">
@@ -33,8 +46,10 @@ const UpdateDetails = () => {
                       Image Url
                     </span>
                     <input
+                      defaultValue={singleData.photo}
                       name="photo"
                       type="text"
+                      required
                     
                       className="input input-bordered bg-opacity-30 hover:bg-opacity-80 text-white "
                     />
@@ -46,8 +61,10 @@ const UpdateDetails = () => {
                       Model
                     </span>
                     <input
+                    defaultValue={singleData.name}
                       name="name"
                       type="text"
+                      required
                     
                       className="input input-bordered bg-opacity-30 hover:bg-opacity-80 "
                     />
@@ -62,12 +79,11 @@ const UpdateDetails = () => {
                       </span>
                       <div className="input-group">
                         <select
+                        required
                           name="brand"
                           className="select select-bordered w-full bg-opacity-30 hover:bg-opacity-80 ">
-                          <option disabled selected>
-                            <span className="font-semibold">Select</span>
-                          </option>
-                          <option>Toyota</option>
+                          
+                          <option required>Toyota</option>
                           <option>Tesla</option>
                           <option>Ferrari</option>
                           <option>Honda</option>
@@ -89,9 +105,7 @@ const UpdateDetails = () => {
                         <select
                           name="carCategory"
                           className="select select-bordered w-full bg-opacity-30 hover:bg-opacity-80 ">
-                          <option disabled selected>
-                            <span className="font-semibold">Select</span>
-                          </option>
+                          
                           <option>Sedan Car</option>
                           <option>Classic Car</option>
                           <option>Luxury Car</option>
@@ -109,7 +123,8 @@ const UpdateDetails = () => {
                         Price
                       </span>
                       <input
-                        
+                      required
+                        defaultValue={singleData.price}
                         name="price"
                         type="text"
                         className="input input-bordered bg-opacity-30 hover:bg-opacity-80 font-semibold"
@@ -123,8 +138,10 @@ const UpdateDetails = () => {
                         Rating
                       </span>
                       <input
+                      required
+                      defaultValue={singleData.rating}
                         name="rating"
-                        type="number"                       
+                        type="text"                       
                         className="input input-bordered bg-opacity-30 hover:bg-opacity-80 font-semibold"
                       />
                     </label>
@@ -136,7 +153,8 @@ const UpdateDetails = () => {
                       Short Description
                     </span>
                     <textarea
-                      
+                    required
+                      defaultValue={singleData.description}
                       name="description"
                       className=" textarea textarea-bordered textarea-lg w-full bg-opacity-30 hover:bg-opacity-80 "></textarea>
                   </label>

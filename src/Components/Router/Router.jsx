@@ -9,6 +9,7 @@ import UpdateDetails from "../Pages/UpdateDetails/UpdateDetails";
 import PrivetRoute from "../PrivetRoute/PrivetRoute";
 import Details from '../Pages/Details/Details'
 import MyCart from "../Pages/MyCart/MyCart";
+import BrandProduct from "../Pages/BrandProduct/BrandProduct";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -33,8 +34,9 @@ const router = createBrowserRouter([
         element: <PrivetRoute><Addcar></Addcar></PrivetRoute>,
       },
       {
-        path: "/update",
+        path: "/update/:id",
         element: <UpdateDetails></UpdateDetails>,
+        loader: ({params})=>fetch(`http://localhost:5000/cars/${params.id}`),
       },
       {
         path: "/details/:id",
@@ -45,6 +47,12 @@ const router = createBrowserRouter([
         path: "/my-cart/",
         element: <PrivetRoute><MyCart></MyCart></PrivetRoute>,
         loader: ()=> fetch("http://localhost:5000/my-cart"),
+      },
+      {
+        path: "/brand/:name",
+        element: <PrivetRoute><BrandProduct></BrandProduct></PrivetRoute>,
+        loader: ()=> fetch("http://localhost:5000/brand"),
+        
       },
     ],
   },

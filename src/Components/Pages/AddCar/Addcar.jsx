@@ -1,5 +1,5 @@
 import React from "react";
-
+import toast, { Toaster } from "react-hot-toast";
 const Addcar = () => {
   const handleAddCar = (e) => {
     e.preventDefault();
@@ -30,12 +30,12 @@ const Addcar = () => {
       body: JSON.stringify(addedCars),
     })
       .then((res) => res.json())
-      .then((data) => {
-        console.log(data.message);
+      .then(() => {
+        toast.success("Car added Successfully");
       });
   };
   return (
-    <div>
+    <div><Toaster />
       <div>
         <div
           className="lg:hero lg:min-h-screen"

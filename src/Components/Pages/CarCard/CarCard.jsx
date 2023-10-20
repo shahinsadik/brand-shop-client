@@ -6,10 +6,10 @@ const CarCard = ({ car }) => {
   const { photo, brand, rating, name, carCategory, price, _id } = car;
   return (
     <div>
-      <div className="mx-5">
+      <div className="">
         <div className="bg-base-100 shadow-xl rounded-lg p-2">
           <img className="rounded-xl h-60 w-full " src={photo} alt="" />
-          <div className="flex justify-between my-2">
+          <div className="flex justify-between ">
             <h3 className=" font-semibold ">{brand}</h3>
             <div className="text-orange-600 flex items-center gap-1">
             <AiTwotoneStar/>

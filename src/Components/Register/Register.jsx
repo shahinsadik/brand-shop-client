@@ -2,7 +2,7 @@
 import { useContext, useState } from 'react';
 import { AuthContext   } from "../AuthProvider/AuthProvider";
 import toast, { Toaster } from 'react-hot-toast';
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation,Link } from "react-router-dom";
 const Register = () => {
   const [emailError, setEmailError] = useState("");
   const {crateNewUser, profileUpdate}= useContext(AuthContext)
@@ -65,7 +65,7 @@ const Register = () => {
           className="lg:hero lg:min-h-screen"
           style={{
             backgroundImage:
-              "url(https://img.freepik.com/premium-photo/red-bmw-z4-sports-car-with-black-grille-word-mercedes-front_796580-1778.jpg?size=626&ext=jpg&ga=GA1.1.1161433032.1686377112&semt=sph)",
+              "url(https://storage.googleapis.com/theme-vessel-items/checking-sites/autocar-html/HTML/main/img/banner/img-2.jpg)",
           }}>
           <div className="hero-overlay bg-opacity-80">
             <div className="  rounded-lg">
@@ -127,6 +127,9 @@ const Register = () => {
                 />
               </div>
             </form>
+            <div>
+                  <p className="my-2 font-semibold text-center text-white">  Have An Account ?<Link to="/login" className="text-center font-bold text-green-700"> Login Now</Link></p>
+                  </div>
             </div>
           </div>
         </div>

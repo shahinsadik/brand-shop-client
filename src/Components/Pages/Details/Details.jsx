@@ -1,6 +1,7 @@
 import React from "react";
 import { useLoaderData, useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
+import toast, { Toaster } from "react-hot-toast";
 import { AiTwotoneStar, AiOutlineShoppingCart } from "react-icons/ai";
 const Details = () => {
   const data = useLoaderData();
@@ -22,14 +23,14 @@ const Details = () => {
       body:JSON.stringify(dataToAddToCart)
     })
     .then(res=>res.json())
-    .then(data=>{
-      console.log(data.message);
+    .then(()=>{
+      toast.success("Successfully add to cart");
     })
 }
   return (
-    <div className="my-10">
+    <div className="my-10"><Toaster></Toaster>
       <div className="mx-5">
-        <div className=" p-2 ">
+        <div  className=" p-2 ">
           <img className="w-full " src={details.photo} alt="" />
           <div className="flex justify-between mb-2 mt-2">
             <h2 className="text-2xl font-bold ">Model: {details.name}</h2>

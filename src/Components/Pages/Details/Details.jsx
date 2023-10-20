@@ -35,7 +35,7 @@ const Details = () => {
             <h2 className="text-2xl font-bold ">Model: {details.name}</h2>
             <div className="text-orange-600 flex items-center gap-1">
               <AiTwotoneStar></AiTwotoneStar>
-              <p className=" font-semibold">Rating: {details.rating}</p>
+              <p className=" font-semibold"> {details.rating}</p>
             </div>
           </div>{" "}
           <div className="flex justify-between my-2">

@@ -60,79 +60,80 @@ const Register = () => {
   }
   return (
     <div><Toaster/>
-      <div className="h-screen bg-[#060d1f] ">
-        <div className="grid grid-cols-2 h-full items-center">
-          <div className=" mx-5 rounded-lg"  >
+  <div>
+        <div
+          className="lg:hero lg:min-h-screen"
+          style={{
+            backgroundImage:
+              "url(https://img.freepik.com/premium-photo/red-bmw-z4-sports-car-with-black-grille-word-mercedes-front_796580-1778.jpg?size=626&ext=jpg&ga=GA1.1.1161433032.1686377112&semt=sph)",
+          }}>
+          <div className="hero-overlay bg-opacity-80">
+            <div className="  rounded-lg">
             <form onSubmit={handleSignUp} className="w-2/3 mx-auto space-y-2">
               <h2 className="text-center font-bold text-3xl my-5 text-white">
                 Sign Up Now
               </h2>
               <div className="form-control w-full">
                 <label className="input-group input-group-vertical">
-                  <span className="bg-black text-white">Full Name</span>
+                  <span className="bg-black bg-opacity-60 text-white font-semibold">Full Name</span>
                   <input
                     name="name"
                     type="text"
                     placeholder="Enter Your Full Name"
-                    className="input input-bordered"
+                    className="input input-bordered bg-opacity-30 hover:bg-opacity-80"
                   />
                 </label>
               </div>
               <div className="form-control w-full">
                 <label className="input-group input-group-vertical">
-                  <span className="bg-[#f6bbc6]">Photo Link</span>
+                  <span className="bg-black bg-opacity-60 text-white font-semibold">Photo Link</span>
                   <input
                     name="photo"
                     type="photo"
                     placeholder="Enter Your Photo URL"
-                    className="input input-bordered"
+                    className="input input-bordered bg-opacity-30 hover:bg-opacity-80"
                   />
                 </label>
               </div>
               <div className="form-control w-full">
                 <label className="input-group input-group-vertical">
-                  <span className="bg-[#f6bbc6]">Email</span>
+                  <span className="bg-black bg-opacity-60 text-white font-semibold">Email</span>
                   <input
                     name="email"
                     type="email"
                     placeholder="Enter Email"
-                    className="input input-bordered"
+                    className="input input-bordered bg-opacity-30 hover:bg-opacity-80"
                   />
                 </label>
               </div>
               {emailError && <p className="text-red-700">{emailError}</p>}
               <div className="form-control">
                 <label className="input-group input-group-vertical">
-                  <span className="bg-[#d2b48c]">Password</span>
+                  <span className="bg-black bg-opacity-60 text-white font-semibold">Password</span>
                   <input
                     name="password"
                     type="password"
                     placeholder="Enter password"
-                    className="input input-bordered"
+                    className="input input-bordered bg-opacity-30 hover:bg-opacity-80"
                   />
                 </label>
               </div>
               <p className="text-red-700">{error}</p>
               <div>
                 <input
-                  className="btn mb-10 font-semibold text-[#331A15] bg-[#d2b48c] w-full  p-2 rounded-lg "
+                  className="btn duration-1000 mb-10 hover:text-[#331A15] bg-[#d2b48c] w-full  p-2 rounded-lg bg-opacity-30 hover:bg-opacity-80 font-bold text-white "
                   type="submit"
                   value="Sign Up"
                 />
               </div>
             </form>
-          </div>
-          <div className="">
-            <img
-              className="h-full"
-              src="https://f001.backblazeb2.com/file/BIT-Magazine-Images/1665660010-electric_car_1418790563.jpg"
-              alt=""
-            />
+            </div>
           </div>
         </div>
       </div>
-    </div>
+      </div>
   );
 };
+
 
 export default Register;

@@ -65,6 +65,7 @@ useEffect(() => {
     signInUser,
     logOut,
     profileUpdate,
+    loading
 }
   return (<div>
     <AuthContext.Provider value={authInfo}>

@@ -11,20 +11,28 @@ const Addcar = () => {
     const rating = form.rating.value;
     const carCategory = form.carCategory.value;
     const brand = form.brand.value;
-    const addedCars = {name, price, description, photo, rating, carCategory, brand};
+    const addedCars = {
+      name,
+      price,
+      description,
+      photo,
+      rating,
+      carCategory,
+      brand,
+    };
     console.log(addedCars);
 
-     fetch("http://localhost:5000/cars",{
-      method:"POST",
-      headers:{
-        "Content-Type":"application/json"
+    fetch("http://localhost:5000/cars", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
       },
-      body:JSON.stringify(addedCars)
+      body: JSON.stringify(addedCars),
     })
-    .then(res=>res.json())
-    .then(data=>{
-      console.log(data.message);
-    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data.message);
+      });
   };
   return (
     <div>
@@ -78,13 +86,12 @@ const Addcar = () => {
                         <select
                           name="brand"
                           className="select select-bordered w-full bg-opacity-30 hover:bg-opacity-80 ">
-                          
-                          <option >BMW </option>
-                          <option >Toyota</option>
-                          <option >Tesla</option>
-                          <option >Ferrari</option>
-                          <option >Nissan</option>
-                          <option >Honda</option>
+                          <option>BMW </option>
+                          <option>Toyota</option>
+                          <option>Tesla</option>
+                          <option>Ferrari</option>
+                          <option>Nissan</option>
+                          <option>Honda</option>
                         </select>
                       </div>
                     </label>
@@ -92,18 +99,19 @@ const Addcar = () => {
 
                   <div className="form-control ">
                     <label className="input-group input-group-vertical">
-                      <span className="bg-black bg-opacity-60 text-white font-semibold"> Category
+                      <span className="bg-black bg-opacity-60 text-white font-semibold">
+                        {" "}
+                        Category
                       </span>
                       <div className="input-group">
                         <select
                           name="carCategory"
                           className="select select-bordered w-full bg-opacity-30 hover:bg-opacity-80 ">
-                          
-                          <option >Sports Car</option>
-                          <option >Sedan Car</option>
-                          <option >Classic Car</option>
-                          <option >Luxury Car</option>
-                          <option >Electric Car</option>
+                          <option>Sports Car</option>
+                          <option>Sedan Car</option>
+                          <option>Classic Car</option>
+                          <option>Luxury Car</option>
+                          <option>Electric Car</option>
                         </select>
                       </div>
                     </label>
@@ -141,7 +149,7 @@ const Addcar = () => {
                     <span className="bg-black bg-opacity-60 text-white font-semibold">
                       Short Description
                     </span>
-                   
+
                     <textarea
                       placeholder="Enter Description"
                       name="description"

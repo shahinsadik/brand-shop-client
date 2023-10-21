@@ -20,7 +20,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: ()=> fetch("http://localhost:5000/cars"),
+        loader: ()=> fetch("https://brand-shop-server-i8zowvxnj-shahin-sadiks-projects.vercel.app/cars"),
       },
       {
         path: "/login",
@@ -37,22 +37,22 @@ const router = createBrowserRouter([
       {
         path: "/update/:id",
         element: <UpdateDetails></UpdateDetails>,
-        loader: ({params})=>fetch(`http://localhost:5000/cars/${params.id}`),
+        loader: ({params})=>fetch(`https://brand-shop-server-i8zowvxnj-shahin-sadiks-projects.vercel.app/cars/${params.id}`),
       },
       {
         path: "/details/:id",
         element: <PrivetRoute><Details></Details></PrivetRoute>,
-        loader: ()=> fetch("http://localhost:5000/cars"),
+        loader: ()=> fetch("https://brand-shop-server-i8zowvxnj-shahin-sadiks-projects.vercel.app/cars"),
       },
       {
         path: "/my-cart/",
         element: <PrivetRoute><MyCart></MyCart></PrivetRoute>,
-        loader: ()=> fetch("http://localhost:5000/my-cart"),
+        loader: ()=> fetch("https://brand-shop-server-i8zowvxnj-shahin-sadiks-projects.vercel.app/my-cart"),
       },
       {
         path: "/brand/:name",
         element: <PrivetRoute><BrandProduct></BrandProduct></PrivetRoute>,
-        loader: ()=> fetch("http://localhost:5000/brand"),
+        loader: ()=> fetch("https://brand-shop-server-i8zowvxnj-shahin-sadiks-projects.vercel.app/brand"),
         
       },
       {

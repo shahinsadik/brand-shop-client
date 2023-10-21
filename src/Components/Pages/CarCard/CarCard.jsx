@@ -14,7 +14,7 @@ const CarCard = ({ car }) => {
       <div className="">
         <div
         
-        className="bg-base-100 shadow-xl rounded-lg p-2">
+        className="bg-base-100 dark:bg-slate-700 shadow-xl rounded-lg p-2">
           <div data-aos="zoom-out"
                 data-aos-easing="linear"
                 data-aos-duration="2000">

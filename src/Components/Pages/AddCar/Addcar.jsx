@@ -22,7 +22,7 @@ const Addcar = () => {
     };
     console.log(addedCars);
 
-    fetch("http://localhost:5000/cars", {
+    fetch("https://brand-shop-server-i8zowvxnj-shahin-sadiks-projects.vercel.app/cars", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

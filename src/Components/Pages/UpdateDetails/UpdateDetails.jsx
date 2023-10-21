@@ -15,7 +15,7 @@ const UpdateDetails = () => {
         const brand = form.brand.value;
         const updateData = {name, price, description, photo, rating, carCategory, brand};
         
-        fetch(`http://localhost:5000/cars/${singleData._id}`,{
+        fetch(`https://brand-shop-server-i8zowvxnj-shahin-sadiks-projects.vercel.app/cars/${singleData._id}`,{
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json'

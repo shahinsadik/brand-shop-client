@@ -15,7 +15,7 @@ const Details = () => {
         productId: id, 
     };
     console.log(dataToAddToCart);
-    fetch("http://localhost:5000/my-cart",{
+    fetch("https://brand-shop-server-i8zowvxnj-shahin-sadiks-projects.vercel.app/my-cart",{
       method:"POST",
       headers:{
         "Content-Type":"application/json"

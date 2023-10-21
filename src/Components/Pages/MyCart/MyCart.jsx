@@ -8,34 +8,40 @@ const MyCart = () => {
   const [carsData, setCarsData] = useState([]);
 
   const handleDelete = (_id) => {
-    fetch(`http://localhost:5000/my-cart/${_id}`, {
-      method: "DELETE",
-    })
-      .then((response) => response.json())
-      .then(() => {
-        Swal.fire({
-          title: "Are you sure?",
-          text: "You won't be able to revert this!",
-          icon: "warning",
-          showCancelButton: true,
-          confirmButtonColor: "#3085d6",
-          cancelButtonColor: "#d33",
-          confirmButtonText: "Yes, delete it!",
-        }).then((result) => {
-          if (result.isConfirmed) {
-            Swal.fire("Deleted!", "Your file has been deleted.", "success");
+
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(
+          `https://brand-shop-server-i8zowvxnj-shahin-sadiks-projects.vercel.app/my-cart/${_id}`,
+          {
+            method: "DELETE",
           }
-        });
-        const remaining = myCart.filter((item) => item._id !== _id);
-        setMyCart(remaining);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+        )
+          .then((response) => response.json())
+          .then(() => {
+            Swal.fire("Deleted!", "Your file has been deleted.", "success");
+            const remaining = myCart.filter((item) => item._id !== _id);
+            setMyCart(remaining);
+          })
+          
+
+      }
+    });
+    
   };
 
   useEffect(() => {
-    fetch("http://localhost:5000/cars")
+    fetch(
+      "https://brand-shop-server-i8zowvxnj-shahin-sadiks-projects.vercel.app/cars"
+    )
       .then((response) => response.json())
       .then((data) => {
         setCarsData(data);

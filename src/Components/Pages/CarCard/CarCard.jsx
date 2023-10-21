@@ -1,14 +1,25 @@
-import React from "react";
+import {useEffect} from "react";
 import {Link} from 'react-router-dom'
 import { AiTwotoneStar, AiFillEye } from 'react-icons/ai';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const CarCard = ({ car }) => {
   const { photo, brand, rating, name, carCategory, price, _id } = car;
+  useEffect(() => {
+    AOS.init();
+  }, [])
   return (
     <div>
       <div className="">
-        <div className="bg-base-100 shadow-xl rounded-lg p-2">
+        <div
+        
+        className="bg-base-100 shadow-xl rounded-lg p-2">
+          <div data-aos="zoom-out"
+                data-aos-easing="linear"
+                data-aos-duration="2000">
           <img className="rounded-xl h-60 w-full " src={photo} alt="" />
+          </div>
           <div className="flex justify-between ">
             <h3 className=" font-semibold ">{brand}</h3>
             <div className="text-orange-600 flex items-center gap-1">

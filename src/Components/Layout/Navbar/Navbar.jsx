@@ -1,9 +1,10 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import toast, { Toaster } from "react-hot-toast";
-
+import { BsSun, BsFillMoonFill } from "react-icons/bs";
 const Navbar = () => {
+  const [darkTheme, setDarkTheme] = useState(false);
   const { user, logOut } = useContext(AuthContext);
   const handleLogOut = () => {
     logOut()
@@ -14,24 +15,29 @@ const Navbar = () => {
         console.error(error.message);
       });
   };
+  const handleMode = () => {
+    setDarkTheme(!darkTheme);
+  };
 
   const links = (
     <>
+      <li className="font-bold  text-lg ">
+        <NavLink className="dark:text-white" to="/">
+          Home
+        </NavLink>
+      </li>
       <li className="font-bold  text-lg">
-            <NavLink to="/">Home</NavLink>
-          </li>
-          <li className="font-bold  text-lg">
-            <NavLink to="/addcar">Add Car</NavLink>
-          </li>
-          <li className="font-bold  text-lg">
-            <NavLink to="/my-cart">My cart</NavLink>
-          </li>
+        <NavLink to="/addcar">Add Car</NavLink>
+      </li>
+      <li className="font-bold  text-lg">
+        <NavLink to="/my-cart">My cart</NavLink>
+      </li>
     </>
   );
 
   return (
-    <div>
-      <div className="navbar  drop-shadow-xl z-40" >
+    <div className={darkTheme ? "dark" : ""}>
+      <div className="navbar  dark:bg-slate-700 drop-shadow-xl z-40 ">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -56,35 +62,40 @@ const Navbar = () => {
             </ul>
           </div>
           <Link to="/" className="ml-5 normal-case">
-            <span className=" text-2xl font-bold text-red-500">Car Shop</span>
-            
+            <span className=" text-2xl  font-bold text-red-500">Car Shop</span>
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1 ">{links}</ul>
         </div>
+        
         <div className="navbar-end ">
+        <div >
+          <button className="border p-3 bg-slate-700 rounded-full mr-5" onClick={handleMode}>
+            {" "}
+            {darkTheme ? <BsFillMoonFill className="text-white"></BsFillMoonFill> : <BsSun className="text-white"></BsSun>}
+          </button>
+        </div>
+          <div>
           {user ? (
             <>
-            <div>
-              
-            </div>
+              <div></div>
               <div className="dropdown dropdown-end ">
                 <label
                   tabIndex={0}
                   className="btn btn-ghost btn-circle avatar bg-white ">
                   <div className="w-10 rounded-full">
-                    {
-                      user.photoURL ? <img src={user?.photoURL} /> : <img src="https://imagedelivery.net/5MYSbk45M80qAwecrlKzdQ/dee97162-41b2-4e11-1d58-1d86f8ac3a00/preview" /> 
-                    }
-                    
-                    
+                    {user.photoURL ? (
+                      <img src={user?.photoURL} />
+                    ) : (
+                      <img src="https://imagedelivery.net/5MYSbk45M80qAwecrlKzdQ/dee97162-41b2-4e11-1d58-1d86f8ac3a00/preview" />
+                    )}
                   </div>
                 </label>
                 <ul
                   tabIndex={0}
                   className="dropdown-content  z-[1] menu p-2 shadow bg-base-100 rounded-box lg:w-52">
-                    <li>
+                  <li>
                     <a className="font-semibold">{user.displayName}</a>
                   </li>
                   <li>
@@ -95,17 +106,16 @@ const Navbar = () => {
                   </li>
                   <a
                     onClick={handleLogOut}
-                    className="btn mt-1 btn-md font-bold text-white hover:text-[#ff3c00] border-none bg-[#ff3c00]">
+                    className="btn mt-1 btn-md font-bold text-white bg: hover:text-[#ff3c00] border-none bg-[#ff3c00]">
                     {" "}
                     Log Out
                   </a>
-                  
                 </ul>
               </div>
-              
             </>
           ) : (
             <div className="flex gap-2">
+              
               <Link to="/login">
                 <button className=" font-semibold text-white rounded-lg p-2 bg-[#ff3c00] border-none">
                   Login
@@ -118,6 +128,7 @@ const Navbar = () => {
               </Link>
             </div>
           )}
+          </div>
         </div>
         <Toaster />
       </div>

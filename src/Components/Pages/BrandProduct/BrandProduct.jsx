@@ -81,9 +81,10 @@ const BrandProduct = () => {
                   </Swiper>
                 </div>
               </div>
+              <div className="grid grid-cols-1 gap-5 lg:grid-cols-2 mx-5">
               {newData.map((data) => (
                 <div key={data._id}>
-                  <div className="grid grid-cols-2 my-5">
+                  <div className=" my-5">
                     <div className="bg-base-300 shadow-xl rounded-lg bg-opacity-80">
                       <div className="flex gap-4 p-5">
                         <div className=" ">
@@ -117,6 +118,7 @@ const BrandProduct = () => {
                   </div>
                 </div>
               ))}
+              </div>
             </div>
           )}
         </div>

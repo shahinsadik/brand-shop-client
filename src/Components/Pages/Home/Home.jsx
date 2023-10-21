@@ -38,7 +38,7 @@ const Home = () => {
           <div>
             <div>
               <div
-                data-aos="zoom-out"
+                data-aos="fade-down"
                 data-aos-easing="linear"
                 data-aos-duration="2000"
                 className="hero  bg-base-200 my-10"
@@ -47,11 +47,11 @@ const Home = () => {
                     "url(https://wallpapercave.com/dwp2x/wp4670591.jpg)",
                 }}>
                 <div
-                  data-aos="zoom-in"
+                  data-aos="fade-up"
                   data-aos-easing="linear"
                   data-aos-duration="2000"
                   className="my-28">
-                  <h1 className="text-5xl text-left font-bold hover:text-white  text-yellow-400">
+                  <h1 className="text-5xl text-left font-bold hover:text-white  text-yellow-400 p-2">
                     FIND YOUR DREAM CAR
                   </h1>
                   <button className=" p-3 mx-5 rounded-xl bg-black text-white font-black my-5">

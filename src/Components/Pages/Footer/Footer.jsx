@@ -26,17 +26,17 @@ const Footer = () => {
         </nav>
         <form>
           <header className="footer-title">Newsletter</header>
-          <fieldset className="form-control w-80">
+          <fieldset className="form-control md:w-80">
             <label className="label">
               <span className="label-text">Enter your email address</span>
             </label>
-            <div className="relative">
+            <div className="">
               <input
                 type="text"
-                placeholder="username@site.com"
-                className="input input-bordered w-full pr-16"
+                placeholder="Email"
+                className="input input-bordered md:w-full lg:pr-16"
               />
-              <button className="btn btn-primary absolute top-0 right-0 rounded-l-none hover:bg-black bg-[#ef1d26]">
+              <button className="btn btn-primary  top-0 right-0 rounded-xl mt-2 hover:bg-black bg-[#ef1d26]">
                 Subscribe
               </button>
             </div>

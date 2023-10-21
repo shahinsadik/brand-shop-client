@@ -15,9 +15,11 @@ const CarCard = ({ car }) => {
         <div
         
         className="bg-base-100 dark:bg-slate-700 shadow-xl rounded-lg p-2">
-          <div data-aos="zoom-out"
+          <div 
+           data-aos="flip-up"
                 data-aos-easing="linear"
-                data-aos-duration="2000">
+                data-aos-duration="2000"
+                >
           <img className="rounded-xl h-60 w-full " src={photo} alt="" />
           </div>
           <div className="flex justify-between ">

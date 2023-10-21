@@ -79,8 +79,8 @@ const Navbar = () => {
             </ul>
           </div>
           <Link to="/" className="ml-5 normal-case flex gap-3">
-            <img className="h-10" src="./fav.png" alt="" />
-            <span className=" text-2xl  font-bold text-red-500"> SSCars</span>
+            <img className="lg:h-10 h-5 hidden md::visible" src="./fav.png" alt="" />
+            <span className=" lg:text-2xl text-xl font-bold text-red-500"> SSCars</span>
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">

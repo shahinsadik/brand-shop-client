@@ -10,6 +10,7 @@ import PrivetRoute from "../PrivetRoute/PrivetRoute";
 import Details from '../Pages/Details/Details'
 import MyCart from "../Pages/MyCart/MyCart";
 import BrandProduct from "../Pages/BrandProduct/BrandProduct";
+import Contact from '../Pages/Contact/Contact'
 const router = createBrowserRouter([
   {
     path: "/",
@@ -54,6 +55,10 @@ const router = createBrowserRouter([
         loader: ()=> fetch("http://localhost:5000/brand"),
         
       },
+      {
+        path: "/contact",
+        element: <Contact></Contact>,
+      }
     ],
   },
 ]);

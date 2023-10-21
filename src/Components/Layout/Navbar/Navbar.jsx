@@ -22,15 +22,20 @@ const Navbar = () => {
   const links = (
     <>
       <li className="font-bold  text-lg ">
-        <NavLink className="dark:text-white" to="/">
+        <NavLink className= "dark:text-white " to="/">
           Home
         </NavLink>
       </li>
-      <li className="font-bold  text-lg">
-        <NavLink to="/addcar">Add Car</NavLink>
+      <li className="font-bold  text-lg ">
+        <NavLink className="dark:text-white" to="/contact">
+          Contact
+        </NavLink>
       </li>
       <li className="font-bold  text-lg">
-        <NavLink to="/my-cart">My cart</NavLink>
+        <NavLink className= "dark:text-white " to="/addcar">Add Car</NavLink>
+      </li>
+      <li className="font-bold  text-lg">
+        <NavLink className= "dark:text-white " to="/my-cart">My cart</NavLink>
       </li>
     </>
   );

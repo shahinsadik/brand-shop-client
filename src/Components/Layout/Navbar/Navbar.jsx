@@ -78,8 +78,9 @@ const Navbar = () => {
               {links}
             </ul>
           </div>
-          <Link to="/" className="ml-5 normal-case">
-            <span className=" text-2xl  font-bold text-red-500">Car Shop</span>
+          <Link to="/" className="ml-5 normal-case flex gap-3">
+            <img className="h-10" src="./fav.png" alt="" />
+            <span className=" text-2xl  font-bold text-red-500"> SSCars</span>
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">

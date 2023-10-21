@@ -18,7 +18,7 @@ const Register = () => {
     const password =form.password.value   
     const register ={name,photo,email, password}
     console.log(register);
-    fetch("https://brand-shop-server-i8zowvxnj-shahin-sadiks-projects.vercel.app/users",{
+    fetch("https://brand-shop-server-4tyjdjn77-shahin-sadiks-projects.vercel.app/users",{
       method:"POST",
       headers:{
         "Content-Type":"application/json"

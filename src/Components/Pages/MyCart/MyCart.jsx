@@ -20,7 +20,7 @@ const MyCart = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         fetch(
-          `https://brand-shop-server-i8zowvxnj-shahin-sadiks-projects.vercel.app/my-cart/${_id}`,
+          `https://brand-shop-server-4tyjdjn77-shahin-sadiks-projects.vercel.app/my-cart/${_id}`,
           {
             method: "DELETE",
           }
@@ -40,7 +40,7 @@ const MyCart = () => {
 
   useEffect(() => {
     fetch(
-      "https://brand-shop-server-i8zowvxnj-shahin-sadiks-projects.vercel.app/cars"
+      "https://brand-shop-server-4tyjdjn77-shahin-sadiks-projects.vercel.app/cars"
     )
       .then((response) => response.json())
       .then((data) => {

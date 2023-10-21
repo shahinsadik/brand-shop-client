@@ -17,9 +17,9 @@ const Home = () => {
         <Banner></Banner>
       </div>
       <div>
-      <Brand></Brand>
+        <Brand></Brand>
       </div>
-      
+
       <div className="">
         <div className=""></div>
         <div className="mt-7">

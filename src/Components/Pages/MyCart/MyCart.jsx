@@ -8,7 +8,6 @@ const MyCart = () => {
   const [carsData, setCarsData] = useState([]);
 
   const handleDelete = (_id) => {
-
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -30,12 +29,9 @@ const MyCart = () => {
             Swal.fire("Deleted!", "Your file has been deleted.", "success");
             const remaining = myCart.filter((item) => item._id !== _id);
             setMyCart(remaining);
-          })
-          
-
+          });
       }
     });
-    
   };
 
   useEffect(() => {

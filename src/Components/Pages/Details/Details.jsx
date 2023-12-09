@@ -1,21 +1,35 @@
-import React from "react";
-import { useLoaderData, useParams } from "react-router-dom";
+import {useContext} from "react";
+import { useLoaderData, useParams,  } from "react-router-dom";
 import { Link } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
 import { AiTwotoneStar, AiOutlineShoppingCart } from "react-icons/ai";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
+
+
 const Details = () => {
+  const {user} =useContext(AuthContext)
+  console.log(user.email);
+  const email = user.email
+  
+  
   const data = useLoaderData();
   const { id } = useParams();
   const details = data.find((details) => details._id === id);
   if (!details) {
     return <div>This car is not found...</div>;
   }
+  
+  console.log(details);
   const handleAddCart = () => {
     const dataToAddToCart = {
-        productId: id, 
+        
+        details,
+        email
+        
+
     };
     console.log(dataToAddToCart);
-    fetch("https://brand-shop-server-4tyjdjn77-shahin-sadiks-projects.vercel.app/my-cart",{
+    fetch("https://brand-shop-server-9x180eunj-shahin-sadiks-projects.vercel.app/my-cart",{
       method:"POST",
       headers:{
         "Content-Type":"application/json"
